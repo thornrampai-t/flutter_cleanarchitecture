@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cleanarchitecture/core/comment/widgets/loader.dart';
 import 'package:flutter_cleanarchitecture/core/theme/app_pallete.dart';
 import 'package:flutter_cleanarchitecture/core/utils/show_snackbar.dart';
+import 'package:flutter_cleanarchitecture/features/auth/presentation/page/login_page.dart';
 import 'package:flutter_cleanarchitecture/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:flutter_cleanarchitecture/features/blog/presentation/pages/add_new_blog.dart';
 import 'package:flutter_cleanarchitecture/features/blog/presentation/widgets/blog_card.dart';
@@ -34,6 +35,16 @@ class _BlogPageState extends State<BlogPage> {
               Navigator.push(context, AddNewBlogPage.route());
             },
             icon: Icon(CupertinoIcons.add_circled),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                LoginPage.route(),
+                (route) => false,
+              );
+            },
+            icon: Icon(Icons.logout),
           ),
         ],
       ),
